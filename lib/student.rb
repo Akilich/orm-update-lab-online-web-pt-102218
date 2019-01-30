@@ -1,7 +1,7 @@
 require_relative "../config/environment.rb"
 
 class Student
- attr_accessor :id, :name, :grade
+ attr_accessor :id=nil, :name, :grade
 
   def self.new_from_db(row)
     new_student = self.new

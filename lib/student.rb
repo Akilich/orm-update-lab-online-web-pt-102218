@@ -1,7 +1,10 @@
 require_relative "../config/environment.rb"
 
 class Student
- attr_accessor :id=nil, :name, :grade
+ attr_accessor :id, :name, :grade
+ 
+ def initialize (id=nil, name, grade)
+   
  
  def self.create_table
     sql = <<-SQL
@@ -48,7 +51,10 @@ def save
   end
   
   def update
-    
+      sql = "UPDATE songs SET name = ?, grade = ? WHERE id = ?"
+    DB[:conn].execute(sql, self.name, self.grade, self.id)
+  end
+
 
 
 

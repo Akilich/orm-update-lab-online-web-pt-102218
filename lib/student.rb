@@ -4,7 +4,10 @@ class Student
  attr_accessor :id, :name, :grade
  
  def initialize (id=nil, name, grade)
-   
+   @id=id
+   @name = name
+   @grade=grade
+ end
  
  def self.create_table
     sql = <<-SQL
@@ -54,8 +57,4 @@ def save
       sql = "UPDATE songs SET name = ?, grade = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.grade, self.id)
   end
-
-
-
-
 end
